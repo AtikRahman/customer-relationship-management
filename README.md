@@ -1,11 +1,11 @@
 # Customer Relationship Management
 
-It's a full-featured Django project where an admin can create customer, order, and control all of them.
-Customer can see their orders only.
+It's a full-featured Django project where an admin can create customers, orders, and control all of them.
+Customers can see their orders only.
 
-In MVT (Model View Template) architecture, Template inheritence is used for reusability.
+In MVT (Model View Template) architecture, Template inheritance is used for reusability.
 Decorators are added to restrict user access. Signal and Form are also added.
-Registration and login page are customized.
+Registration and login pages are customized.
 
 Here are some screenshots of this project.
 
