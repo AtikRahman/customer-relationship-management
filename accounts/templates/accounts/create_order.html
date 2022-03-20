@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card card-body">
+                <h5>Customer: {{customer_name}}</h5>
+                <hr>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {{formset.management_form}}
+                    {% for form in formset %}
+                        {{form}}
+                        <hr>
+                    {% endfor %}
+                    <input type="submit" value="create">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

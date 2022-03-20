@@ -1,0 +1,21 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card card-body">
+                <p>Are you sure, you want to delete {{item}}</p>
+                <form method="POST" action="">
+                    
+                    {% csrf_token %}
+                    <a class="btn btn-warning" href="{% url 'home' %}">Cancel</a>
+                    <input class="btn btn-danger" type="submit" name="confirm">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+<!-- we had to deliver order_id in action, but "" means current url and that 
+already have order_id. although we could: action="{% url 'delete' item.id %}"  -->

@@ -1,0 +1,34 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <img src="{% static 'images/logo.png' %}" style="width: 50px; border-radius: 50%">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          {% if request.user.is_staff %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products' %}">Products</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account' %}">Settings</a>
+            </li>
+          {% endif %}
+          
+        </ul>
+      </div>
+      <div style="direction: rtl; color: white;">
+        {% for message in messages %}
+          {{message}}
+        {%endfor%}  &nbsp;&nbsp;
+        
+        Hello, {{request.user}} &nbsp;&nbsp;
+        <a href="{% url 'logout' %}" style="color: white">logout</a>
+      </div>
+    </div>
+  </nav>
